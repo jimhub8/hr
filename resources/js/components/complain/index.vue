@@ -11,7 +11,7 @@
                 </v-card>
             </v-flex>
             <v-flex sm12>
-                <!-- <myFilter :form="form" :user="user" style></myFilter> -->
+                <myFilter :model="payload.model" :update="payload.update_list"></myFilter>
             </v-flex>
             <v-flex sm12>
                 <v-card style="padding: 10px 0;">
@@ -75,8 +75,8 @@
 
                         <span v-else-if="props.column.field == 'description'" id="description_tab">
                             <el-tooltip class="item" effect="dark" :content="props.row.description" placement="top-start">
-                                <span>
-                                    {{ props.row.description }}
+                                <span v-html="props.row.description">
+                                    <!-- {{ props.row.description }} -->
                                 </span>
                             </el-tooltip>
                         </span>
@@ -111,11 +111,12 @@
 import Create from "./create";
 import Edit from "./edit";
 import Show from "./show";
+import myFilter from '../include/Filter'
 
 export default {
     props: ['user'],
     components: {
-        Create, Edit, Show
+        Create, Edit, Show, myFilter
     },
     data() {
         return {

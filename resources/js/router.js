@@ -4,6 +4,7 @@ import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 
+import myDashboard from './components/dashboard'
 import myUser from './components/users/'
 import myLeave from './components/leave'
 import myLeaveType from './components/leave/leave_type'
@@ -19,6 +20,7 @@ import myAnnouncement from './components/announcement'
 import myCalendar from './components/attendance/Calendar'
 import myProfile from './components/users/profile'
 const routes = [
+    { path: '/', component: myDashboard },
     { path: '/users', component: myUser },
 
     {path: '/leave', component: myLeave },

@@ -17,7 +17,6 @@ class ExpensesSeeder extends Seeder
             Expense::create([
                 'user_id' => $faker->numberBetween($min = 1, $max = 10),
                 'qty' => $faker->numberBetween($min = 1, $max = 10),
-                'bought_by' => $faker->numberBetween($min = 1, $max = 10),
                 'amount' => $faker->numberBetween($min = 300, $max = 5000),
                 'purchased_from' => $faker->word,
                 'item' => $faker->word,

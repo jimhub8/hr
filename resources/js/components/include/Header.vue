@@ -47,6 +47,15 @@
                         </div>
                     </router-link>
 
+                    <router-link to="/complains" class="v-list-item v-list-item--link theme--light">
+                        <div class="v-list__tile__action">
+                            <v-icon>compare_arrows</v-icon>
+                        </div>
+                        <div class="v-list-item__content">
+                            <div class="v-list-item__title">Complains</div>
+                        </div>
+                    </router-link>
+
                     <v-list-group prepend-icon="calendar_view_day">
                         <template v-slot:activator>
                             <v-list-item-title>Attendance</v-list-item-title>

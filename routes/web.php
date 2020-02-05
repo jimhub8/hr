@@ -43,8 +43,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('announcements', 'AnnouncementController');
 
 
-
     Route::post('/distance', 'HomeController@distance')->name('distance');
+
+    Route::post('/{filter}', 'FilterController@filter_data');
 
     Route::get('searchUsers/{search}', 'UserController@searchUsers')->name('searchUsers');
     Route::get('deletedUsers', 'UserController@deletedUsers')->name('deletedUsers');

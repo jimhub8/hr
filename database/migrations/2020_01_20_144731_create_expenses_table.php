@@ -15,8 +15,6 @@ class CreateExpensesTable extends Migration
     {
         Schema::create('expenses', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('user_id');
-            $table->integer('bought_by');
             $table->string('purchased_from')->nullable();
             $table->string('item');
             $table->decimal('amount')->nullable();
@@ -24,6 +22,10 @@ class CreateExpensesTable extends Migration
             $table->date('purchase_date');
             $table->text('remarks')->nullable();
             $table->boolean('status')->default(false);
+
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
             $table->softDeletes();
             $table->timestamps();
         });

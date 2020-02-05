@@ -11,13 +11,13 @@
                     <v-layout row wrap>
                         <v-flex sm12>
                             <v-card-text>
-                                <div>
+                                <!-- <div>
                                     <label for="">Employee</label>
                                     <el-select v-model="form.bought_by" placeholder="Select" style="width: 100%;">
                                         <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
                                         </el-option>
                                     </el-select>
-                                </div>
+                                </div> -->
                                 <div>
                                     <label for="">Item</label>
                                     <el-input placeholder="Item Bought" v-model="form.item"></el-input>

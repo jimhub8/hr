@@ -15,7 +15,6 @@ class CreateLeavesTable extends Migration
     {
         Schema::create('leaves', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('user_id');
             $table->integer('leave_type');
             $table->date('date_from');
             $table->date('date_to');
@@ -24,6 +23,10 @@ class CreateLeavesTable extends Migration
             $table->string('days');
             $table->text('remark');
             $table->text('alocation');
+
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
             $table->softDeletes();
             $table->timestamps();
         });

@@ -22,6 +22,7 @@ class TaskSeeder extends Seeder
                 'priority' => $faker->numberBetween($min = 1, $max = 5),
                 'status' => $faker->word,
                 'description' => $faker->text,
+                'user_assigned' => $faker->numberBetween($min = 1, $max = 10),
             ]);
         }
     }

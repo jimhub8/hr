@@ -194,3 +194,10 @@ table.vgt-table {
     min-width: 10px !important;
     margin-left: 40% !important;
 }
+
+#navigation .v-list-item--link, #navigation .v-list-item--link {
+    text-decoration: none;
+}
+.v-navigation-drawer--clipped:not(.v-navigation-drawer--temporary):not(.v-navigation-drawer--is-mobile) {
+    width: 300px !important;
+}

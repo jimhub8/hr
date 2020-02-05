@@ -18,6 +18,7 @@ class LeaveTypeSeeder extends Seeder
                 'user_id' => $faker->numberBetween($min = 1, $max = 10),
                 'leave_type' => $faker->word,
                 'description' => $faker->text,
+                'no_days' => $faker->numberBetween($min = 1, $max = 10),
             ]);
         }
     }

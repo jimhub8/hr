@@ -38,8 +38,8 @@
                                     </el-input>
                                 </div>
                                 <div>
-                                    <!-- <label for="">Work a location</label>
-                                    <el-input type="textarea" placeholder="Please input" v-model="form.alocation">
+                                    <label for="">Work a location</label>
+                                    <!-- <el-input type="textarea" placeholder="Please input" v-model="form.alocation">
                                     </el-input> -->
                                     <vue-editor v-model="form.alocation"></vue-editor>
                                 </div>

@@ -15,12 +15,15 @@ class CreateExpiriencesTable extends Migration
     {
         Schema::create('expiriences', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('user_id');
             $table->string('organization');
             $table->string('designation')->nullable();
             $table->string('duration')->nullable();
             $table->string('skills')->nullable();
             $table->text('responsibility')->nullable();
+
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
             $table->softDeletes();
             $table->timestamps();
         });

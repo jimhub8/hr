@@ -15,7 +15,6 @@ class CreatePersonalsTable extends Migration
     {
         Schema::create('personals', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('user_id');
             $table->string('address');
             $table->date('joining_date')->nullable();
             $table->date('dob')->nullable();
@@ -23,6 +22,10 @@ class CreatePersonalsTable extends Migration
             $table->string('religion')->nullable();
             $table->string('marital_status')->nullable();
             $table->string('nationality')->nullable();
+
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
             $table->softDeletes();
             $table->timestamps();
         });

@@ -177,7 +177,7 @@ export default {
         var update = payload.update
         var data = payload.data
         context.commit('loading', true)
-        axios.post(model, { req: data })
+        axios.post(model, data)
             .then((response) => {
                 context.commit(update, response.data)
                 context.commit('loading', false)

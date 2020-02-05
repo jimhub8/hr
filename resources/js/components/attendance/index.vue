@@ -11,7 +11,7 @@
                 </v-card>
             </v-flex>
             <v-flex sm12>
-                <!-- <myFilter :form="form" :user="user" style></myFilter> -->
+                <myFilter model="filter_attendance" :update="payload.update_list"></myFilter>
             </v-flex>
             <v-flex sm12>
                 <v-card style="padding: 10px 0;">
@@ -74,7 +74,11 @@
 </template>
 
 <script>
+import myFilter from '../include/Filter'
 export default {
+    components: {
+        myFilter,
+    },
     props: ['user'],
     data() {
         return {

@@ -1,6 +1,6 @@
 <template>
 <v-layout row justify-center>
-    <v-dialog v-model="dialog" persistent max-width="500px">
+    <v-dialog v-model="dialog" persistent max-width="700px">
         <v-card>
             <v-card-title>
                 <span class="headline text-center" style="margin: auto;">Create Complain</span>
@@ -22,8 +22,10 @@
                                 </div>
                                 <div>
                                     <label for="">Complain Description</label>
-                                    <el-input type="textarea" placeholder="Please input" v-model="form.description" maxlength="500" show-word-limit>
-                                    </el-input>
+                                    <!-- <el-input type="textarea" placeholder="Please input" v-model="form.description" maxlength="500" show-word-limit>
+                                    </el-input> -->
+                                    <vue-editor v-model="form.description"></vue-editor>
+
                                 </div>
                             </v-card-text>
                         </v-flex>
@@ -41,7 +43,11 @@
 </template>
 
 <script>
+import { VueEditor } from "vue2-editor";
 export default {
+    components: {
+        VueEditor,
+    },
     data: () => ({
         dialog: false,
         loading: false,
