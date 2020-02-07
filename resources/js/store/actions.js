@@ -45,11 +45,11 @@ export default {
         var id = payload.id
         context.commit('loading', true)
         axios.get(model + '/' + id).then((response) => {
-            // console.log(update);
+            console.log(update, response.data);
             context.commit('loading', false)
             context.commit(update, response.data)
         }).catch((error) => {
-            // console.log(error);
+            console.log(error);
             context.commit('loading', false)
             if (error.response.status === 500) {
                 eventBus.$emit('errorEvent', error.response.statusText)
@@ -69,7 +69,6 @@ export default {
 
     // POST
     postData(context, payload) {
-        // console.log(payload);
 
         var model = payload.model
         var data = payload.data
@@ -99,6 +98,7 @@ export default {
 
     // Patch
     patchData(context, payload) {
+        console.log(payload);
         var model = payload.model
         var id = payload.id
         var data = payload.data

@@ -9,6 +9,13 @@ export default {
         eventBus.$emit('alertEvent', state)
         // return state.alertEvent;
     },
+
+    app(state) {
+        return state.app
+    },
+    app_show(state) {
+        return state.app_show
+    },
     users(state) {
         return state.users
     },
@@ -66,5 +73,11 @@ export default {
     },
     announcements(state) {
         return state.announcements;
+    },
+    shifts(state) {
+        return state.shifts;
+    },
+    terminations(state) {
+        return state.terminations;
     },
 }

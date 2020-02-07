@@ -8,6 +8,12 @@ export default {
     alertEvent(state, payload) {
         state.alertEvent = payload
     },
+    updateAppList(state, payload) {
+        state.app = payload
+    },
+    updateAppShowList(state, payload) {
+        state.app_show = payload
+    },
     updateUsersList(state, payload) {
         state.users = payload
     },
@@ -78,5 +84,11 @@ export default {
     },
     updateAnnouncementsList(state, payload) {
         state.announcements = payload
+    },
+    updateShiftsList(state, payload) {
+        state.shifts = payload
+    },
+    updateTerminationsList(state, payload) {
+        state.terminations = payload
     },
 }

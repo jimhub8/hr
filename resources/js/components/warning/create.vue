@@ -1,6 +1,6 @@
 <template>
 <v-layout row justify-center>
-    <v-dialog v-model="dialog" persistent max-width="500px">
+    <v-dialog v-model="dialog" persistent max-width="700px">
         <v-card>
             <v-card-title>
                 <span class="headline text-center" style="margin: auto;">Create Warning</span>
@@ -11,6 +11,13 @@
                     <v-layout row wrap>
                         <v-flex sm12>
                             <v-card-text>
+                                <div>
+                                    <label for="">Employee *</label>
+                                    <el-select v-model="form.user_id" filterable remote reserve-keyword placeholder="type at least 3 characters" :remote-method="getUsers" :loading="loading" style="width: 100%;">
+                                        <el-option v-for="item in users.data" :key="item.id" :label="item.name" :value="item.id">
+                                        </el-option>
+                                    </el-select>
+                                </div>
                                 <div>
                                     <label for="">Warning Against *</label>
                                     <el-input placeholder="Warning Against" v-model="form.warning_against"></el-input>
@@ -74,7 +81,7 @@ export default {
     methods: {
         save() {
             this.payload.data = this.form
-            this.$store.dispatch('postItems', this.payload)
+            this.$store.dispatch('postData', this.payload)
         },
         close() {
             this.dialog = false;
@@ -83,6 +90,21 @@ export default {
             this.form.designations.push({
                 designation_name: ''
             })
+        },
+        getUsers(query) {
+            if (query.length > 2) {
+                var payload = {
+                    model: 'searchUsers',
+                    update: 'updateUsersList',
+                    search: query
+                }
+                this.$store.dispatch("searchItems", payload);
+            }
+        },
+    },
+    computed: {
+        users() {
+            return this.$store.getters.users
         }
     },
 };

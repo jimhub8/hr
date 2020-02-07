@@ -55,7 +55,7 @@ export default {
     methods: {
         save() {
             this.payload['data'] = this.form
-            this.$store.dispatch('patchItems', this.payload)
+            this.$store.dispatch('patchData', this.payload)
         },
         close() {
             this.dialog = false;

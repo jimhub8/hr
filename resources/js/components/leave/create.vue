@@ -90,7 +90,7 @@ export default {
         save() {
             this.form.days = this.days_
             this.payload.data = this.form
-            this.$store.dispatch('postItems', this.payload)
+            this.$store.dispatch('postData', this.payload)
         },
         close() {
             this.dialog = false;

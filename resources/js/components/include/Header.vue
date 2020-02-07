@@ -120,6 +120,28 @@
                             </div>
                         </router-link>
                     </v-list-group>
+
+                    <v-list-group prepend-icon="settings_applications">
+                        <template v-slot:activator>
+                            <v-list-item-title>App Settings</v-list-item-title>
+                        </template>
+                        <router-link to="/app" class="v-list-item v-list-item--link theme--light">
+                            <div class="v-list__tile__action">
+                                <v-icon>apps</v-icon>
+                            </div>
+                            <div class="v-list-item__content">
+                                <div class="v-list-item__title">App</div>
+                            </div>
+                        </router-link>
+                        <router-link to="/shift" class="v-list-item v-list-item--link theme--light">
+                            <div class="v-list__tile__action">
+                                <v-icon>filter_tilt_shift</v-icon>
+                            </div>
+                            <div class="v-list-item__content">
+                                <div class="v-list-item__title">Shifts</div>
+                            </div>
+                        </router-link>
+                    </v-list-group>
                 </v-card>
             </template>
         </v-list>
@@ -128,7 +150,8 @@
     <v-app-bar :clipped-left="clipped" app color="blue darken-3" dark>
         <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
         <v-toolbar-title style="width: 300px" class="ml-0 pl-4">
-            <img src="/storage/logo.jpg" alt style="width: 130px; height: 60px;border-radius: 20px;">
+            {{ app_show.app_name }}
+            <img :src="app_show.logo" alt style="width: 130px; height: 60px;border-radius: 20px;">
         </v-toolbar-title>
         <v-spacer />
         <div @click="check_in" style="cursor: pointer">
@@ -323,8 +346,20 @@ export default {
                 // console.log(dist);
                 this.dif_ = dist;
             }
-        }
+        },
 
+        getApp() {
+            var payload = {
+                model: 'app_details',
+                update_list: 'updateAppShowList',
+                id: 1,
+            }
+
+            // this.payload.data = this.form
+            this.$store.dispatch('getShowData', payload).then((res) => {
+                eventBus.$emit("appEvent");
+            })
+        },
     },
     created() {
         eventBus.$on("progressEvent", data => {
@@ -353,9 +388,13 @@ export default {
     computed: {
         notifications() {
             return this.$store.getters.notifications
+        },
+        app_show() {
+            return this.$store.getters.app_show
         }
     },
     mounted() {
+        this.getApp()
         // this.getnotifications();
     },
 

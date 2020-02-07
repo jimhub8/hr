@@ -41,9 +41,14 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('complains', 'ComplainController');
     Route::resource('warnings', 'WarningController');
     Route::resource('announcements', 'AnnouncementController');
+    Route::resource('app_details', 'AppController');
+    Route::resource('shifts', 'ShiftController');
+    Route::resource('terminations', 'TerminationController');
+
 
 
     Route::post('/distance', 'HomeController@distance')->name('distance');
+    Route::post('/logo/{id}', 'AppController@logo')->name('logo');
 
     Route::post('/{filter}', 'FilterController@filter_data');
 
